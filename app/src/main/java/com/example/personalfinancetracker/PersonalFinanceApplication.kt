@@ -3,6 +3,7 @@ package com.example.personalfinancetracker
 import android.app.Application
 import com.example.personalfinancetracker.data.AppContainer
 import com.example.personalfinancetracker.data.AppDataContainer
+import com.example.personalfinancetracker.notification.ReminderWorker
 
 class PersonalFinanceApplication : Application() {
 
@@ -13,5 +14,6 @@ class PersonalFinanceApplication : Application() {
         super.onCreate()
 
         container = AppDataContainer(this)
+        ReminderWorker.createChannel(this)
     }
 }

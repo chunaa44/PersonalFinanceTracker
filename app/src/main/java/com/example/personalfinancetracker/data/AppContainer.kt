@@ -8,6 +8,7 @@ private val Context.dataStore by preferencesDataStore(name = "user_preferences")
 interface AppContainer {
     val transactionRepository: TransactionRepository
     val userPreferencesRepository: UserPreferencesRepository
+    val reminderScheduler: ReminderScheduler
 }
 
 class AppDataContainer(private val context: Context) : AppContainer {
@@ -19,5 +20,9 @@ class AppDataContainer(private val context: Context) : AppContainer {
 
     override val userPreferencesRepository: UserPreferencesRepository by lazy {
         UserPreferencesRepository(context.dataStore)
+    }
+
+    override val reminderScheduler: ReminderScheduler by lazy {
+        ReminderScheduler(context)
     }
 }
