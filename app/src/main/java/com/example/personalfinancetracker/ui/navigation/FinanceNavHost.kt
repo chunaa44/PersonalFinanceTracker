@@ -1,6 +1,5 @@
 package com.example.personalfinancetracker.ui.navigation
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -8,8 +7,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.personalfinancetracker.ui.entry.EntryScreen
 import com.example.personalfinancetracker.ui.entry.EntryViewModel
 import com.example.personalfinancetracker.ui.home.HomeScreen
+import com.example.personalfinancetracker.ui.settings.SettingsScreen
 
 object Routes {
     const val HOME = "home"
@@ -37,10 +38,10 @@ fun FinanceNavHost(navController: NavHostController = rememberNavController()) {
                 defaultValue = 0
             })
         ) {
-            Text("Entry screen (Milestone 5)")   // placeholder
+            EntryScreen(onNavigateBack = { navController.popBackStack() })
         }
         composable(Routes.SETTINGS) {
-            Text("Settings screen (Milestone 5)")   // placeholder
+            SettingsScreen(onNavigateBack = { navController.popBackStack() })
         }
     }
 }
